@@ -15,11 +15,10 @@ Plug 'mhinz/vim-startify'           " for DOOM
 Plug 'tpope/vim-fugitive'           " for git
 Plug 'luochen1990/rainbow'          " for rainbow parens
 Plug 'pantharshit00/vim-prisma'     " for prisma syntax highlighting
-" Plug 'ycm-core/YouCompleteMe'       " for autocompletion & linting
 Plug 'tpope/vim-commentary'         " For commenting things out
 Plug 'rachitnigam/drracket.vim'     " For Dr.Racket Arrows -> It doesn't work very well, kinda want to clone and modify
+Plug 'neoclide/coc.nvim', { 'branch': 'release' } " LSP driver 
 " Plug 'kovisoft/slimv'
-" Plug 'junegunn/rainbow_parentheses.vim' " For rainbow parens
 " Plug 'vim-scripts/paredit.vim'      " For working with Lisps
 
 call plug#end()
@@ -55,6 +54,9 @@ set nowritebackup   " don't create write-backup files
 set noswapfile      " don't create backup swap files
 
 set updatetime=300  " shorter update time for VIM and plugins
+
+set shortmess+=c    " Don't pass messages to ins-completion-menu
+set signcolumn=yes  " pre-load the column for coc warnings so that you don't have to redraw everything everytime
 
 noremap <C-N> :NERDTreeToggle<CR>
 
@@ -151,6 +153,22 @@ if executable('rg')
 	set grepprg=rg\ --color=never
 	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 	let g:ctrlp_use_caching = 0
+endif
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-N>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+if has('nvim') 
+  inoremap <silent><expr> <C-Space> coc#refresh()
+else
 endif
 
 " Terminal config
