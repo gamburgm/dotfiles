@@ -100,6 +100,14 @@ augroup END
 augroup racket_ft
   autocmd!
   autocmd BufNewFile,BufRead,BufWrite *.rkt set filetype=racket
+augroup END
+
+augroup file_templates
+  autocmd!
+  autocmd BufNewFile *.rkt 0r ~/.config/nvim/racket.temp.rkt
+  autocmd BufNewFile *.sh  0r ~/.config/nvim/bash.temp.sh
+augroup END
+
 
 " custom header for vim screen, inspired by DOOM emacs
 
