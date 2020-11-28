@@ -18,6 +18,7 @@ Plug 'pantharshit00/vim-prisma'     " for prisma syntax highlighting
 Plug 'tpope/vim-commentary'         " For commenting things out
 Plug 'rachitnigam/drracket.vim'     " For Dr.Racket Arrows -> It doesn't work very well, kinda want to clone and modify
 Plug 'neoclide/coc.nvim', { 'branch': 'release' } " LSP driver 
+Plug 'jparise/vim-graphql'
 " Plug 'kovisoft/slimv'
 " Plug 'vim-scripts/paredit.vim'      " For working with Lisps
 
@@ -61,6 +62,7 @@ set signcolumn=yes  " pre-load the column for coc warnings so that you don't hav
 noremap <C-N> :NERDTreeToggle<CR>
 
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>en :vsplit ~/todos.md<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>pv :PlugInstall<CR>
 nnoremap <leader>pc :PlugClean<CR>
@@ -177,6 +179,7 @@ endfunction
 if has('nvim') 
   inoremap <silent><expr> <C-Space> coc#refresh()
 else
+  " what was this supposed to be?
 endif
 
 " Terminal config
