@@ -110,6 +110,8 @@ augroup file_templates
   autocmd BufNewFile *.sh  0r ~/.config/nvim/bash.temp.sh
 augroup END
 
+" would be cool to have an abbreviation that expands if to if..else..end in
+" elixir
 
 " custom header for vim screen, inspired by DOOM emacs
 
@@ -153,6 +155,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'ToggleType(1)': ['<C-L>', '<C-Up>'],
   \ 'ToggleType(-1)': ['<C-H>', '<C-Down>'],
   \ }
+
+let g:ctrlp_match_window = 'results:100'
 
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
