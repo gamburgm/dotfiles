@@ -144,6 +144,7 @@ let g:startify_custom_header_quotes = [
   \ ["                          Correct answer, zero points"],
   \ ["                        I'll give you a hint: left paren"],
   \ ["                                     oopsah"],
+  \ ["                What is the biggest lie in computing? It works."],
   \]
 
 let g:startify_custom_header = startify#center(g:ascii + g:startify#fortune#quote())
